@@ -239,8 +239,26 @@
     h1{ font-size:27px; }
     .exp-item, .skill-group{ grid-template-columns:1fr; gap:6px; }
     .edu-item{ flex-direction:column; }
-    .tb-link{ display:none; }
     .top-status{ font-size:11px; padding:7px 14px; gap:10px; }
+
+    /* Taskbar: keep all links, make it horizontally scrollable instead of hiding them */
+    .taskbar{
+      max-width: calc(100vw - 24px);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      justify-content: flex-start;
+    }
+    .taskbar::-webkit-scrollbar{ display:none; }
+    .tb-link{
+      display:flex;
+      font-size:11px;
+      padding:0 10px;
+      flex-shrink:0;
+      white-space:nowrap;
+    }
+    .tb-start{ flex-shrink:0; }
+    .tb-divider{ flex-shrink:0; }
   }
 </style>
 </head>
