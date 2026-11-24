@@ -19,7 +19,7 @@
 </head>
 <body>
 
-  <!-- Horizontal Top Navigation -->
+  <!-- Responsive Top Navigation -->
   <header class="top-nav">
     <div class="top-nav-inner">
       <a href="./" class="brand-group">
@@ -27,6 +27,7 @@
         <span class="mono-meta">HI LAB @ KU</span>
       </a>
 
+      <!-- Desktop Tabs -->
       <nav class="horizontal-tabs" aria-label="Primary Navigation">
         <a href="./" class="tab-link active"><span class="num">01/</span>Overview</a>
         <a href="projects/" class="tab-link"><span class="num">02/</span>Projects</a>
@@ -37,42 +38,75 @@
       <div class="nav-actions">
         <a href="https://pantamahesh.com.np/" target="_blank" class="nav-domain">pantamahesh.com.np</a>
         <button class="theme-toggle" id="theme-toggle">Dark Mode</button>
+        <button class="hamburger-btn" id="drawer-open" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- Mobile Drawer & Backdrop -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div>
+      <div class="drawer-header">
+        <span class="logo-mark">MP // <span class="status-dot"></span></span>
+        <button class="drawer-close" id="drawer-close" aria-label="Close navigation menu">&#x2715;</button>
+      </div>
+
+      <nav class="drawer-nav">
+        <a href="./" class="drawer-link active"><span><span class="num">01/</span>Overview</span><span>&rarr;</span></a>
+        <a href="projects/" class="drawer-link"><span><span class="num">02/</span>Projects</span><span>&rarr;</span></a>
+        <a href="cv/" class="drawer-link"><span><span class="num">03/</span>CV &amp; Stack</span><span>&rarr;</span></a>
+        <a href="contact/" class="drawer-link"><span><span class="num">04/</span>Contact</span><span>&rarr;</span></a>
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="assets/mecv.pdf" target="_blank" class="btn btn-primary" style="width: 100%;">Download PDF Resume &rarr;</a>
+      <div class="drawer-socials">
+        <a href="https://pantamahesh.com.np/" target="_blank">pantamahesh.com.np</a>
+        <a href="https://github.com/maheshpanta333" target="_blank">GitHub &nearr;</a>
+        <a href="https://www.linkedin.com/in/maheshpanta" target="_blank">LinkedIn &nearr;</a>
+      </div>
+    </div>
+  </aside>
+
   <main class="canvas">
     <!-- Decorated Hero Showcase with Photo -->
     <section class="hero-stage">
-      <!-- Subtle Decorative Corner Rings -->
       <div class="decor-orb orb-1" aria-hidden="true"></div>
       <div class="decor-orb orb-2" aria-hidden="true"></div>
 
       <div class="hero-grid">
         <div class="hero-copy">
-          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.1rem;">
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
             <a href="https://hilab.ku.edu.np/" target="_blank" class="pill accent" style="text-decoration: none;">
               <span class="status-dot"></span> Research Trainee · KU HI Lab &nearr;
             </a>
             <span class="pill">Dhulikhel, Nepal</span>
           </div>
 
-          <h1 style="font-size: clamp(2.25rem, 4.2vw, 3.15rem); margin-bottom: 0.75rem;">
+          <h1 style="font-size: clamp(2.15rem, 4.5vw, 3.15rem); margin-bottom: 0.7rem;">
             Mahesh <span class="serif-accent">Panta</span>
           </h1>
 
-          <p style="font-size: 1.05rem; color: var(--text-muted); max-width: 500px; margin-bottom: 1.65rem;">
+          <p style="font-size: 1.02rem; color: var(--text-muted); max-width: 500px; margin-bottom: 1.5rem;">
             Computer Engineering undergraduate exploring <strong>computer vision</strong>, <strong>medical imaging</strong>, and <strong>practical ML systems</strong>.
           </p>
 
-          <div style="display: flex; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
-            <a href="projects/" class="btn btn-primary">Explore Projects &rarr;</a>
+          <div class="hero-cta-group">
+            <a href="projects/" class="btn btn-primary cta-main">Explore Projects &rarr;</a>
             <a href="cv/" class="btn btn-outline">Curriculum Vitae</a>
             <a href="assets/mecv.pdf" target="_blank" class="btn btn-outline">PDF Resume</a>
           </div>
 
           <!-- Minimal Social Links -->
-          <div style="display: flex; gap: 0.85rem; flex-wrap: wrap; align-items: center;">
+          <div class="hero-social-strip">
             <a href="mailto:pantamahesh99@gmail.com" class="mono-meta" style="color: var(--accent); text-decoration: none;">pantamahesh99@gmail.com</a>
             <span class="mono-meta">&middot;</span>
             <a href="https://www.linkedin.com/in/maheshpanta" target="_blank" class="mono-meta" style="color: var(--text-muted); text-decoration: none;">LinkedIn &nearr;</a>
@@ -93,7 +127,7 @@
       </div>
     </section>
 
-    <!-- Visual Focus Pillars (Minimal Text) -->
+    <!-- Visual Focus Pillars -->
     <section class="pillars-grid">
       <div class="card pillar-card">
         <div class="pillar-icon">01</div>
@@ -122,7 +156,7 @@
 
     <!-- Clean Selected Work Preview -->
     <section>
-      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.15rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.1rem;">
         <h2 style="font-size: 1.3rem;">Featured <span class="serif-accent">Work</span></h2>
         <a href="projects/" class="mono-meta" style="text-decoration: none; color: var(--accent);">All 6 Projects &rarr;</a>
       </div>
@@ -166,6 +200,7 @@
   </main>
 
   <script>
+    // Theme Toggle
     const toggle = document.getElementById('theme-toggle');
     const html = document.documentElement;
     const setLabel = () => toggle.textContent = html.getAttribute('data-theme') === 'dark' ? 'Bright Mode' : 'Dark Mode';
@@ -176,6 +211,26 @@
       localStorage.setItem('theme', next);
       setLabel();
     });
+
+    // Mobile Drawer Controller
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
+    const openBtn = document.getElementById('drawer-open');
+    const closeBtn = document.getElementById('drawer-close');
+
+    function setDrawer(open) {
+      drawer.classList.toggle('open', open);
+      backdrop.classList.toggle('open', open);
+      document.body.classList.toggle('drawer-open', open);
+      openBtn.setAttribute('aria-expanded', String(open));
+      drawer.setAttribute('aria-hidden', String(!open));
+    }
+
+    openBtn.addEventListener('click', () => setDrawer(true));
+    closeBtn.addEventListener('click', () => setDrawer(false));
+    backdrop.addEventListener('click', () => setDrawer(false));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setDrawer(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 820) setDrawer(false); });
   </script>
 
   <style>
@@ -199,20 +254,8 @@
       filter: blur(48px);
       opacity: 0.55;
     }
-    .orb-1 {
-      width: 260px;
-      height: 260px;
-      background: var(--accent-soft);
-      top: -60px;
-      right: 40px;
-    }
-    .orb-2 {
-      width: 200px;
-      height: 200px;
-      background: var(--bg-subtle);
-      bottom: -60px;
-      left: 35%;
-    }
+    .orb-1 { width: 260px; height: 260px; background: var(--accent-soft); top: -60px; right: 40px; }
+    .orb-2 { width: 200px; height: 200px; background: var(--bg-subtle); bottom: -60px; left: 35%; }
 
     .hero-grid {
       position: relative;
@@ -220,6 +263,20 @@
       display: grid;
       grid-template-columns: 1fr 270px;
       gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-social-strip {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
       align-items: center;
     }
 
@@ -317,11 +374,37 @@
       color: inherit;
     }
 
-    @media (max-width: 880px) {
-      .hero-stage { padding: 1.75rem 1.35rem; }
-      .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .portrait-showcase { max-width: 240px; }
-      .pillars-grid, .featured-grid { grid-template-columns: 1fr; }
+    /* Mobile Hero & Grid Adjustments */
+    @media (max-width: 820px) {
+      .hero-stage {
+        padding: 1.5rem 1.25rem;
+        border-radius: 16px;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+      .portrait-showcase {
+        max-width: 245px;
+      }
+      .badge-top { left: 8px; top: 10px; }
+      .badge-bottom { right: 8px; bottom: 12px; }
+      .pillars-grid,
+      .featured-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-cta-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.55rem;
+      }
+      .hero-cta-group .cta-main {
+        grid-column: 1 / -1;
+      }
     }
   </style>
 </body>

@@ -11,12 +11,13 @@
     (function() {
       const t = localStorage.getItem('theme');
       if (t) document.documentElement.setAttribute('data-theme', t);
+      else if (window.matchMedia('(prefers-color-scheme: dark)').matches) document.documentElement.setAttribute('data-theme', 'dark');
     })();
   </script>
 </head>
 <body>
 
-  <!-- Horizontal Top Navigation -->
+  <!-- Responsive Top Navigation -->
   <header class="top-nav">
     <div class="top-nav-inner">
       <a href="../" class="brand-group">
@@ -24,6 +25,7 @@
         <span class="mono-meta">HI LAB @ KU</span>
       </a>
 
+      <!-- Desktop Tabs -->
       <nav class="horizontal-tabs" aria-label="Primary Navigation">
         <a href="../" class="tab-link"><span class="num">01/</span>Overview</a>
         <a href="../projects/" class="tab-link active"><span class="num">02/</span>Projects</a>
@@ -34,12 +36,46 @@
       <div class="nav-actions">
         <a href="https://pantamahesh.com.np/" target="_blank" class="nav-domain">pantamahesh.com.np</a>
         <button class="theme-toggle" id="theme-toggle">Dark Mode</button>
+        <button class="hamburger-btn" id="drawer-open" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- Mobile Drawer & Backdrop -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation" aria-hidden="true">
+    <div>
+      <div class="drawer-header">
+        <span class="logo-mark">MP // <span class="status-dot"></span></span>
+        <button class="drawer-close" id="drawer-close" aria-label="Close navigation menu">&#x2715;</button>
+      </div>
+
+      <nav class="drawer-nav">
+        <a href="../" class="drawer-link"><span><span class="num">01/</span>Overview</span><span>&rarr;</span></a>
+        <a href="../projects/" class="drawer-link active"><span><span class="num">02/</span>Projects</span><span>&rarr;</span></a>
+        <a href="../cv/" class="drawer-link"><span><span class="num">03/</span>CV &amp; Stack</span><span>&rarr;</span></a>
+        <a href="../contact/" class="drawer-link"><span><span class="num">04/</span>Contact</span><span>&rarr;</span></a>
+      </nav>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="../assets/mecv.pdf" target="_blank" class="btn btn-primary" style="width: 100%;">Download PDF Resume &rarr;</a>
+      <div class="drawer-socials">
+        <a href="https://pantamahesh.com.np/" target="_blank">pantamahesh.com.np</a>
+        <a href="https://github.com/maheshpanta333" target="_blank">GitHub &nearr;</a>
+        <a href="https://www.linkedin.com/in/maheshpanta" target="_blank">LinkedIn &nearr;</a>
+      </div>
+    </div>
+  </aside>
+
   <main class="canvas">
-    <header class="page-header" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+    <header class="page-header projects-header">
       <div>
         <h1>Project <span class="serif-accent">Archive</span></h1>
         <p class="subtitle">Selected builds across computer vision, edge AI, full-stack platforms, and C++ systems.</p>
@@ -61,7 +97,7 @@
             <span class="mono-meta">EDGE AI · 2026</span>
             <span class="pill accent">Air-Gapped AI</span>
           </div>
-          <h2 style="font-size: 1.2rem; margin-bottom: 0.45rem;">DraftBench</h2>
+          <h2 style="font-size: 1.18rem; margin-bottom: 0.45rem;">DraftBench</h2>
           <p class="project-lead">
             Offline special education assistant generating IEP goals, ASD lesson plans, Braille, and NSL diagrams on local laptops.
           </p>
@@ -97,7 +133,7 @@
             <span class="mono-meta">METRIC LEARNING · 2026</span>
             <span class="pill accent">84.91% P@1</span>
           </div>
-          <h2 style="font-size: 1.2rem; margin-bottom: 0.45rem;">Clothing Visual Search &amp; Matching</h2>
+          <h2 style="font-size: 1.18rem; margin-bottom: 0.45rem;">Clothing Visual Search &amp; Matching</h2>
           <p class="project-lead">
             Visual garment retrieval engine matching uploaded clothing photos across a 25-category wardrobe dataset.
           </p>
@@ -131,7 +167,7 @@
             <span class="mono-meta">CIVIC TECH · CV</span>
             <span class="pill accent">YOLOv8 + Flutter</span>
           </div>
-          <h2 style="font-size: 1.2rem; margin-bottom: 0.45rem;">ChitraDartaa Civic Reporting</h2>
+          <h2 style="font-size: 1.18rem; margin-bottom: 0.45rem;">ChitraDartaa Civic Reporting</h2>
           <p class="project-lead">
             Geo-tagged civic issue reporting app using YOLOv8 and CNNs to classify potholes, garbage, and road damage.
           </p>
@@ -165,7 +201,7 @@
             <span class="mono-meta">REMOTE SENSING · 2026</span>
             <span class="pill accent">LOCUS 2026 Finalist</span>
           </div>
-          <h2 style="font-size: 1.2rem; margin-bottom: 0.45rem;">Forest Conservation System</h2>
+          <h2 style="font-size: 1.18rem; margin-bottom: 0.45rem;">Forest Conservation System</h2>
           <p class="project-lead">
             AI forest monitoring system detecting deforestation and environmental threats from remote sensing imagery.
           </p>
@@ -199,7 +235,7 @@
             <span class="mono-meta">C++ SYSTEMS · RL</span>
             <span class="pill">UDP Multiplayer</span>
           </div>
-          <h2 style="font-size: 1.2rem; margin-bottom: 0.45rem;">Game Vault: Mini Game Arcade</h2>
+          <h2 style="font-size: 1.18rem; margin-bottom: 0.45rem;">Game Vault: Mini Game Arcade</h2>
           <p class="project-lead">
             Multiplayer C++ arcade (Pong, Snake, Space Invaders) over ENet reliable UDP with RL-inspired AI agents.
           </p>
@@ -232,7 +268,7 @@
             <span class="mono-meta">NLP · MOBILE</span>
             <span class="pill">Python + Kivy</span>
           </div>
-          <h2 style="font-size: 1.2rem; margin-bottom: 0.45rem;">YummY-Chef Chatbot</h2>
+          <h2 style="font-size: 1.18rem; margin-bottom: 0.45rem;">YummY-Chef Chatbot</h2>
           <p class="project-lead">
             Cross-platform mobile recipe assistant with conversational NLP guidance and SQLite memory.
           </p>
@@ -261,6 +297,7 @@
   </main>
 
   <script>
+    // Theme Toggle
     const toggle = document.getElementById('theme-toggle');
     const html = document.documentElement;
     const setLabel = () => toggle.textContent = html.getAttribute('data-theme') === 'dark' ? 'Bright Mode' : 'Dark Mode';
@@ -272,6 +309,27 @@
       setLabel();
     });
 
+    // Mobile Drawer Controller
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('drawer-backdrop');
+    const openBtn = document.getElementById('drawer-open');
+    const closeBtn = document.getElementById('drawer-close');
+
+    function setDrawer(open) {
+      drawer.classList.toggle('open', open);
+      backdrop.classList.toggle('open', open);
+      document.body.classList.toggle('drawer-open', open);
+      openBtn.setAttribute('aria-expanded', String(open));
+      drawer.setAttribute('aria-hidden', String(!open));
+    }
+
+    openBtn.addEventListener('click', () => setDrawer(true));
+    closeBtn.addEventListener('click', () => setDrawer(false));
+    backdrop.addEventListener('click', () => setDrawer(false));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setDrawer(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 820) setDrawer(false); });
+
+    // Project Filters
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.project-card');
     filterBtns.forEach(btn => {
@@ -288,11 +346,19 @@
   </script>
 
   <style>
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
     .filter-bar { display: flex; gap: 0.45rem; flex-wrap: wrap; }
     .filter-btn {
       font-family: var(--font-mono);
       font-size: 0.74rem;
-      padding: 0.38rem 0.72rem;
+      padding: 0.42rem 0.78rem;
       border-radius: 8px;
       border: 1px solid var(--border-hairline);
       background: var(--bg-card);
@@ -308,25 +374,28 @@
 
     .project-lead {
       color: var(--text-muted);
-      font-size: 0.92rem;
+      font-size: 0.91rem;
       margin-bottom: 0.85rem;
     }
 
-    /* Clean Collapsible Technical Details */
+    /* Collapsible Technical Details */
     .tech-drawer {
       margin-bottom: 1rem;
       border-radius: 8px;
       background: var(--bg-canvas);
       border: 1px solid var(--border-hairline);
-      padding: 0.5rem 0.75rem;
+      padding: 0.55rem 0.8rem;
     }
     .tech-drawer summary {
       font-family: var(--font-mono);
-      font-size: 0.73rem;
+      font-size: 0.74rem;
       color: var(--accent);
       cursor: pointer;
       user-select: none;
       font-weight: 600;
+      min-height: 24px;
+      display: flex;
+      align-items: center;
     }
     .tech-drawer ul {
       margin-top: 0.55rem;
@@ -349,8 +418,18 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 860px) {
-      .bento-grid { grid-template-columns: 1fr; }
+    @media (max-width: 820px) {
+      .bento-grid { grid-template-columns: 1fr; gap: 1.1rem; }
+      .filter-bar {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.45rem;
+      }
+      .filter-btn {
+        min-height: 40px;
+        text-align: center;
+      }
     }
   </style>
 </body>
