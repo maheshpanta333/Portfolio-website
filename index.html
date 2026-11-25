@@ -384,6 +384,15 @@
         grid-template-columns: 1fr;
         gap: 1.75rem;
       }
+      .hero-cta-group {
+        gap: 0.5rem;
+      }
+      .hero-cta-group .btn {
+        min-height: 40px;
+        padding: 0.48rem 0.92rem;
+        font-size: 0.81rem;
+        white-space: nowrap;
+      }
       .portrait-showcase {
         max-width: 245px;
       }
@@ -396,14 +405,12 @@
       }
     }
 
-    @media (max-width: 520px) {
-      .hero-cta-group {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.55rem;
-      }
+    @media (max-width: 420px) {
       .hero-cta-group .cta-main {
-        grid-column: 1 / -1;
+        width: 100%;
+      }
+      .hero-cta-group .btn-outline {
+        flex: 1 1 auto;
       }
     }
   </style>
